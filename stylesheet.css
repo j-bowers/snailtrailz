@@ -1,0 +1,76 @@
+/* Set the background image for the body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1625411091084-6310a80feeac?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c25haWwlMjB0cmFpbHxlbnwwfHwwfHx8MA%3D%3D'); /* Replace with actual snail background URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Transparent div styling */
+.content {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background behind the div */
+    text-align: center;
+}
+
+.foot {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background behind the div */
+    text-align: center;
+}
+
+/* Navigation bar styling */
+.nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    z-index: 100; /* Ensure it's on top */
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffdd57; /* Change color on hover */
+}
+
+/* Heading and text styling */
+h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+p {
+    color: #555;
+    font-size: 1.2em;
+}
