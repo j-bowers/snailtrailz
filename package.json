@@ -1,0 +1,26 @@
+{
+  "name": "snailtrailz",
+  "version": "1.0.0",
+  "description": "Tells you what the internet knows about you.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-bowers/snailtrailz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-bowers/snailtrailz/issues"
+  },
+  "homepage": "https://github.com/j-bowers/snailtrailz#readme",
+  "devDependencies": {
+    "wrangler": "^4.132.0"
+  },
+  "private": true,
+  "type": "module"
+}
