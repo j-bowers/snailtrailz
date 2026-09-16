@@ -79,8 +79,9 @@ npm install
 npm run dev      # http://127.0.0.1:8787
 ```
 
-Locally, `request.cf` is a placeholder (Wrangler mocks Austin/DFW) and
-`CF-Connecting-IP` is absent, so pass it yourself:
+Locally, `request.cf` is a placeholder (Wrangler mocks a fixed US location)
+and `CF-Connecting-IP` is `127.0.0.1`. Pass the header yourself to test a
+specific address:
 
 ```bash
 curl -H "CF-Connecting-IP: 203.0.113.42" http://127.0.0.1:8787/

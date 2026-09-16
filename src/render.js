@@ -132,7 +132,7 @@ export function renderPage(data, nonce, opts = {}) {
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%90%8C</text></svg>">
 <style nonce="${n}">${STYLES}</style>
 </head>
-<body data-edge-tz="${esc(location.timezone === null ? '' : location.timezone)}">
+<body data-edge-tz="${location.timezone ? esc(location.timezone) : ''}">
 <div class="wrap">
 
 <header>
@@ -181,10 +181,7 @@ export function renderPage(data, nonce, opts = {}) {
       ${clientRow('CPU cores', 'c-cores')}
       ${clientRow('Memory', 'c-memory')}
       ${clientRow('Touch', 'c-touch')}
-      <div class="row">
-        <dt>Timezone</dt>
-        <dd><span id="c-timezone">…</span><p class="note" id="c-tz-note"></p></dd>
-      </div>
+      ${clientRow('Timezone', 'c-timezone', true)}
     </dl>
     <p class="note">Browsers deliberately freeze or round some of these to make you harder to track, so a version number here may be a polite fiction. Safari, for instance, has reported macOS 10.15.7 for years.</p>
   </section>

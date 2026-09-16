@@ -61,9 +61,14 @@ export const clientScript = String.raw`
 
   function detectBrowser() {
     var ua = navigator.userAgent, m;
+    // Order matters: most of these also carry a Chrome/ or Safari/ token.
+    if ((m = ua.match(/CriOS\/(\d+)/))) return 'Chrome ' + m[1];
+    if ((m = ua.match(/FxiOS\/(\d+)/))) return 'Firefox ' + m[1];
+    if ((m = ua.match(/EdgiOS\/(\d+)/))) return 'Edge ' + m[1];
     if ((m = ua.match(/Firefox\/(\d+)/))) return 'Firefox ' + m[1];
     if ((m = ua.match(/Edg\/(\d+)/))) return 'Edge ' + m[1];
     if ((m = ua.match(/OPR\/(\d+)/))) return 'Opera ' + m[1];
+    if ((m = ua.match(/SamsungBrowser\/(\d+)/))) return 'Samsung Internet ' + m[1];
     if ((m = ua.match(/Chrome\/(\d+)/))) return 'Chrome ' + m[1];
     if (/Safari\//.test(ua) && (m = ua.match(/Version\/(\d+)/))) return 'Safari ' + m[1];
     return 'Unknown';
@@ -92,7 +97,7 @@ export const clientScript = String.raw`
   // section reports the timezone of the IP you arrived on. A mismatch usually
   // means a VPN, a proxy, or travel — it is a hint, never proof.
   var edgeTz = document.body.getAttribute('data-edge-tz') || '';
-  var note = document.getElementById('c-tz-note');
+  var note = document.getElementById('c-timezone-note');
   if (note && tz && edgeTz) {
     if (tz === edgeTz) {
       note.textContent = 'Matches the timezone of your IP address.';
