@@ -77,7 +77,14 @@ fraction of the CPU budget.
 ```bash
 npm install
 npm run dev      # http://127.0.0.1:8787
+npm test         # ~100ms, no browser or Wrangler needed
 ```
+
+The tests call the Worker's `fetch` handler directly and run the browser
+script under Node with a stubbed DOM, so they cover routing, headers,
+escaping, rate limiting and user-agent detection — but not rendering or the
+CSP nonce path, which still need a real browser. `npm run deploy` runs them
+first and refuses to deploy on failure.
 
 Locally, `request.cf` is a placeholder (Wrangler mocks a fixed US location)
 and `CF-Connecting-IP` is `127.0.0.1`. Pass the header yourself to test a
@@ -104,5 +111,6 @@ a real domain later is a config change, not a rebuild.
 src/index.js    routing, content negotiation, rate limiting, headers
 src/render.js   HTML rendering + escaping
 src/client.js   browser-side script, inlined under the CSP nonce
+test/           node --test suites for the Worker and the browser script
 legacy/         the original 2024 static site, kept for reference
 ```

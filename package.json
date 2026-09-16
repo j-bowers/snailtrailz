@@ -4,6 +4,8 @@
   "description": "Tells you what the internet knows about you.",
   "scripts": {
     "dev": "wrangler dev",
+    "test": "node --test",
+    "predeploy": "npm test",
     "deploy": "wrangler deploy",
     "tail": "wrangler tail"
   },
