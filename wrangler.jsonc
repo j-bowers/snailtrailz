@@ -12,6 +12,11 @@
   ],
   "workers_dev": false,
 
+  // BowCloud fonts, served from this Worker's own origin (no third-party font host). Static assets
+  // are matched before the Worker runs, and public/ holds nothing but fonts, so every other path
+  // ("/", "/json", "/health", 404s) still reaches src/index.js.
+  "assets": { "directory": "./public" },
+
   // Workers Logs. Captures errors and invocation metadata so you can debug a
   // broken deploy. It does NOT capture visitor IPs unless you log them
   // yourself — so don't. Set to false if you'd rather keep nothing at all.

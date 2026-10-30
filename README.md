@@ -7,6 +7,12 @@ gives away on top of that.
 Runs as a single Cloudflare Worker. No build step, no dependencies at runtime,
 no database, no third-party API calls.
 
+Dressed in the BowCloud brand (colours and type from `BowCloud Designs`). The two
+fonts, Bricolage Grotesque and Figtree (SIL OFL), are served from this Worker's own
+origin out of `public/fonts/` as static assets, so the page still makes no request to
+anyone else. `public/` must only ever hold fonts: static assets are matched before
+the Worker runs, so a file there named like a route would shadow it.
+
 ## Endpoints
 
 | Path | Returns |
@@ -62,6 +68,8 @@ transmitted. `src/client.js` has no `fetch()` calls. Keep it that way.
 - **Rate limited** to 60 requests/minute/IP via the native binding. It's
   eventually consistent and errs permissive by design, which is the right
   tradeoff for an anonymous public endpoint.
+- **Fonts are allowed by `font-src 'self'`** and nothing else. The favicon is an
+  inline `data:` SVG, which `img-src 'self' data:` already permits.
 - All interpolated values are HTML-escaped in `src/render.js`. The user-agent
   string is attacker-controlled and is echoed to the page — don't remove that
   escaping.

@@ -58,6 +58,7 @@ function securityHeaders(nonce) {
     nonce ? `script-src 'nonce-${nonce}'` : "script-src 'none'",
     nonce ? `style-src 'nonce-${nonce}'` : "style-src 'none'",
     "img-src 'self' data:",
+    "font-src 'self'",
     "connect-src 'self'",
     "base-uri 'none'",
     "form-action 'none'",
