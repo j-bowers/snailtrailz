@@ -4,6 +4,14 @@
   "main": "src/index.js",
   "compatibility_date": "2026-09-16",
 
+  // Served at snailtrailz.bowcloud.dev (custom domain; Cloudflare manages the DNS record and
+  // certificate). Declared here so `wrangler deploy` matches the dashboard instead of drifting.
+  // workers_dev is false because the *.workers.dev address would expose the account name.
+  "routes": [
+    { "pattern": "snailtrailz.bowcloud.dev", "custom_domain": true }
+  ],
+  "workers_dev": false,
+
   // Workers Logs. Captures errors and invocation metadata so you can debug a
   // broken deploy. It does NOT capture visitor IPs unless you log them
   // yourself — so don't. Set to false if you'd rather keep nothing at all.
