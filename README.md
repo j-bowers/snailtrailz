@@ -48,8 +48,10 @@ turn this into the thing it's supposed to demonstrate.
 
 What that claim does *not* cover, and the page says so: Cloudflare delivers this
 site and, like any network carrying your traffic, sees the request in transit.
-`observability` in `wrangler.jsonc` keeps sampled invocation traces so a broken
-deploy is debuggable. Set it to `false` if you'd rather keep nothing at all.
+Workers Logs (`observability` in `wrangler.jsonc`) is **off**: its invocation logs
+keep each request's metadata for days, which can include the visitor's address.
+To debug a broken deploy, use `npm run tail` (`wrangler tail`), which streams live
+requests while it runs and stores nothing. Don't turn `observability` back on.
 
 The "what your browser reveals" section runs entirely client-side and is never
 transmitted. `src/client.js` has no `fetch()` calls. Keep it that way.

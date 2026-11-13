@@ -17,12 +17,12 @@
   // ("/", "/json", "/health", 404s) still reaches src/index.js.
   "assets": { "directory": "./public" },
 
-  // Workers Logs. Captures errors and invocation metadata so you can debug a
-  // broken deploy. It does NOT capture visitor IPs unless you log them
-  // yourself — so don't. Set to false if you'd rather keep nothing at all.
+  // Workers Logs off. Invocation logs store each request's metadata (which can
+  // include the visitor's IP in its headers) for days, and that would make
+  // "writes no logs" untrue. To debug, watch live with `npx wrangler tail`:
+  // it streams requests while it runs and stores nothing.
   "observability": {
-    "enabled": true,
-    "head_sampling_rate": 0.1
+    "enabled": false
   },
 
   // Abuse control. 60 requests per minute per IP is generous for a human and
